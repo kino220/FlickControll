@@ -9,10 +9,6 @@
     tools:context=".MainActivity"
         android:id="@+id/mainLayout">
 
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="@string/hello_world" />
 
 </RelativeLayout>
 <!-- From: file:/C:/Users/Iplab/Documents/GitHub/FrickDraw/MyApplicationProject/FrickDraw/src/main/res/layout/activity_main.xml -->
