@@ -15,13 +15,6 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5972dba2-0221-4b9a-9522-3f53cc19edaf" name="Default" comment="">
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrickDraw/src/main/AndroidManifest.xml" afterPath="$PROJECT_DIR$/FrickDraw/src/main/AndroidManifest.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrickDraw/build/source/buildConfig/debug/com/example/frickdraw/BuildConfig.java" afterPath="$PROJECT_DIR$/FrickDraw/build/source/buildConfig/debug/com/example/frickdraw/BuildConfig.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrickDraw/src/main/java/com/example/frickdraw/MainActivity.java" afterPath="$PROJECT_DIR$/FrickDraw/src/main/java/com/example/frickdraw/MainActivity.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrickDraw/build/res/all/debug/layout/activity_main.xml" afterPath="$PROJECT_DIR$/FrickDraw/build/res/all/debug/layout/activity_main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/FrickDraw/src/main/res/layout/activity_main.xml" afterPath="$PROJECT_DIR$/FrickDraw/src/main/res/layout/activity_main.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/gradle.xml" afterPath="$PROJECT_DIR$/.idea/gradle.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/vcs.xml" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="FrickDraw.iws" />
@@ -40,7 +33,8 @@
     <disable_hints />
   </component>
   <component name="DebuggerManager">
-    <breakpoint_any>
+    <ui_properties default_suspend_policy="SuspendAll" default_condition_enabled="true" />
+    <breakpoint_any default_suspend_policy="SuspendAll" default_condition_enabled="true">
       <breakpoint>
         <option name="NOTIFY_CAUGHT" value="true" />
         <option name="NOTIFY_UNCAUGHT" value="true" />
@@ -88,8 +82,10 @@
       <file leaf-file-name="MainActivity.java" pinned="false" current="true" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/FrickDraw/src/main/java/com/example/frickdraw/MainActivity.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state line="7" column="25" selection-start="196" selection-end="196" vertical-scroll-proportion="0.05263158" vertical-offset="88" max-vertical-offset="2040">
-              <folding />
+            <state line="21" column="43" selection-start="588" selection-end="588" vertical-scroll-proportion="0.7369863" vertical-offset="88" max-vertical-offset="1989">
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -188,6 +184,20 @@
       <sortByType />
     </navigator>
     <panes>
+      <pane id="PackagesPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FrickDraw" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="FrickDraw" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -340,20 +350,6 @@
             <PATH_ELEMENT>
               <option name="myItemId" value="debug" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-        </subPane>
-      </pane>
-      <pane id="PackagesPane">
-        <subPane>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FrickDraw" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="FrickDraw" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PackageViewModuleNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
@@ -539,6 +535,11 @@
       <created>1377436523116</created>
       <updated>1377436523116</updated>
     </task>
+    <task id="LOCAL-00001" summary="フリック動作を取得するタッチイベントリスナを作成。&#10;指が触れた座標と離れた座標を取得し移動量を計算。&#10;指が触れた時のシステム時間と離れた時のシステム時間を取得しフリック動作に掛かった時間を計算。">
+      <created>1378403125909</created>
+      <updated>1378403125909</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TodoView" selected-index="0">
@@ -568,28 +569,28 @@
       <window_info id="Palette&#9;" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32899022" sideWeight="0.5" order="8" side_tool="false" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34465197" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3436482" sideWeight="0.5" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32899022" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Build Variants" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3436482" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Android" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32767403" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Gradle" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3293718" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.24962178" sideWeight="0.65534806" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Maven Projects" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24886535" sideWeight="0.65534806" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.24816446" sideWeight="0.6563518" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.34295416" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Preview" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32869694" sideWeight="0.6710098" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.34465197" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
@@ -610,14 +611,18 @@
     <entry file="file://$PROJECT_DIR$/FrickDraw/src/main/java/com/example/frickdraw/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="25" column="0" selection-start="636" selection-end="636" vertical-scroll-proportion="0.0" vertical-offset="323" max-vertical-offset="646">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/FrickDraw/src/main/java/com/example/frickdraw/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="10" column="0" selection-start="261" selection-end="261" vertical-scroll-proportion="0.0" vertical-offset="68" max-vertical-offset="646">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -634,21 +639,27 @@
     <entry file="file://$PROJECT_DIR$/FrickDraw/src/main/java/com/example/frickdraw/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="13" selection-start="173" selection-end="173" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="459">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/FrickDraw/src/main/java/com/example/frickdraw/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="8" column="13" selection-start="173" selection-end="173" vertical-scroll-proportion="0.0" vertical-offset="85" max-vertical-offset="459">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/FrickDraw/src/main/java/com/example/frickdraw/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
         <state line="6" column="13" selection-start="127" selection-end="127" vertical-scroll-proportion="0.0" vertical-offset="51" max-vertical-offset="459">
-          <folding />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
@@ -659,12 +670,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/FrickDraw/build/source/r/debug/com/example/frickdraw/R.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="10" column="36" selection-start="273" selection-end="273" vertical-scroll-proportion="0.15070923" vertical-offset="0" max-vertical-offset="986" />
+        <state line="10" column="36" selection-start="273" selection-end="273" vertical-scroll-proportion="0.15070923" vertical-offset="0" max-vertical-offset="986">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/FrickDraw/build/source/buildConfig/debug/com/example/frickdraw/BuildConfig.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="3" column="19" selection-start="102" selection-end="102" vertical-scroll-proportion="0.09042553" vertical-offset="0" max-vertical-offset="564" />
+        <state line="3" column="19" selection-start="102" selection-end="102" vertical-scroll-proportion="0.09042553" vertical-offset="0" max-vertical-offset="564">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/FrickDraw/FrickDraw.iml">
@@ -699,13 +714,17 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/FrickDraw/src/main/AndroidManifest.xml">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="12" column="23" selection-start="369" selection-end="370" vertical-scroll-proportion="0.19944598" vertical-offset="132" max-vertical-offset="544" />
+        <state line="12" column="23" selection-start="369" selection-end="370" vertical-scroll-proportion="0.19944598" vertical-offset="132" max-vertical-offset="544">
+          <folding />
+        </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/FrickDraw/src/main/java/com/example/frickdraw/MainActivity.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state line="7" column="25" selection-start="196" selection-end="196" vertical-scroll-proportion="0.05263158" vertical-offset="88" max-vertical-offset="2040">
-          <folding />
+        <state line="21" column="43" selection-start="588" selection-end="588" vertical-scroll-proportion="0.7369863" vertical-offset="88" max-vertical-offset="1989">
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
