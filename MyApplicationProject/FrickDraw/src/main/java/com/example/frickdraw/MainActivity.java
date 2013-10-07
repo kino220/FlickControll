@@ -2,11 +2,13 @@ package com.example.frickdraw;
 
 import android.os.Bundle;
 import android.app.Activity;
+import android.text.Layout;
 import android.util.Log;
 import android.view.Display;
 import android.view.Menu;
 import android.view.MotionEvent;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.WindowManager;
 import android.widget.EditText;
 import android.widget.RelativeLayout;
@@ -19,7 +21,9 @@ public class MainActivity extends Activity {
     long startTime = 0, endTime = 0;
     private RelativeLayout mainLayout;
     private TextView text;
-    private GraphicView gview;
+    private GraphicView gview; //試作用
+    private MySurfaceView mySurfaceView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,14 +31,14 @@ public class MainActivity extends Activity {
 
         setContentView(R.layout.activity_main);
         mainLayout = (RelativeLayout) findViewById(R.id.mainLayout);
-
-
-
-
+        mainLayout.setPadding(0,0,0,0);
 
 
         //Textview初期化
         text = new TextView(this);
+
+
+
         String str = String.format("StartPoint:(%f,%f) \n" +
                 "TerminalPoint:(%f,%f)",sx,sy,tx,ty);
         text.setText(str);
@@ -51,7 +55,18 @@ public class MainActivity extends Activity {
         gview = new GraphicView(this, display.getWidth(), display.getHeight());
 
         //mainLayoutにGraphicViewを追加
-        mainLayout.addView(gview);
+        //mainLayout.addView(gview);
+
+
+        //MySurfaceView初期化
+        mySurfaceView = new MySurfaceView(this, display.getWidth(), display.getHeight());
+        mySurfaceView.setPadding(0,0,0,0);
+
+        mainLayout.addView(mySurfaceView);
+
+
+
+
 
         //タッチリスナの設定
         //タップをどのように認識するかの記述はこの辺
@@ -115,6 +130,9 @@ public class MainActivity extends Activity {
 
 
     }
+
+
+
 
 
 /*
