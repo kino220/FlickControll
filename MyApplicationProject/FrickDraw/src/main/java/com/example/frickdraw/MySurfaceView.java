@@ -17,6 +17,7 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
     Thread thread;
     SurfaceHolder holder;
     int screenWidth,screenHeight;
+    InputArea inputArea = new InputArea();
 
    public MySurfaceView(Context context,int width, int height){
        super(context);
@@ -89,10 +90,7 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
 
             Paint paint = new Paint();
             paint.setColor(Color.GREEN);
-
-
-            canvas.drawCircle(100, 100, 20, paint);
-
+            canvas.drawRect(inputArea.getArea(),paint);
             holder.unlockCanvasAndPost(canvas);
         }
     }
