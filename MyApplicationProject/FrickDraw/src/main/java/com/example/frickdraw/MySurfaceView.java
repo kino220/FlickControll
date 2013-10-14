@@ -7,6 +7,7 @@ import android.content.*;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
+import android.graphics.Point;
 import android.graphics.PorterDuff;
 import android.view.*;
 import android.os.Bundle;
@@ -14,32 +15,49 @@ import android.util.*;
 import android.graphics.PixelFormat;
 
 public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback,Runnable {
+
+
+    static final long FPS = 30;
+    static final long FRAME_TIME = 1000 / FPS;
+
     Thread thread;
     SurfaceHolder holder;
+
     int screenWidth,screenHeight;
     InputArea inputArea = new InputArea();
+    FrickLocus frickLocus = new FrickLocus();
+
+
 
    public MySurfaceView(Context context,int width, int height){
        super(context);
-       holder = getHolder();
-       holder.addCallback(this);
+       this.holder = getHolder();
+
        screenWidth = width;
        screenHeight = height;
+
+
+
+
+       this.holder.addCallback(this);
+       // 半透明を設定
+       this.holder.setFormat(PixelFormat.TRANSLUCENT);
+       //サイズの設定
+       this.holder.setFixedSize(screenWidth,screenHeight);
+       //最前面に設定
+       setZOrderOnTop(true);
        Log.i("MySurfaceView","width:"+width+"height:"+height);
 
 
-
-       holder.setFixedSize(screenWidth,screenHeight);
-
-       // 半透明を設定
-       getHolder().setFormat(PixelFormat.TRANSLUCENT);
-       //最前面に設定
-       setZOrderOnTop(true);
    }
 
     @Override
     public void surfaceCreated(SurfaceHolder surfaceHolder) {
+        Log.i("MySurfaceView","create");
+
+        //スレッド作成
         thread = new Thread(this);
+        //スレッドスタート
         thread.start();
     }
 
@@ -60,13 +78,13 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
 
     @Override
     public void surfaceChanged(SurfaceHolder surfaceHolder, int f, int w, int h) {
-
-
+        Log.i("MySurfaceView","changed");
 
     }
 
     @Override
     public void surfaceDestroyed(SurfaceHolder surfaceHolder) {
+        Log.i("MySurfaceView","destroy");
         thread = null;
     }
 
@@ -74,8 +92,24 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
     //ループ実行されるメソッド
     //このへんで値を計算してonDrawで描画
     public void run() {
-        if(thread != null){
-            onDraw(holder);
+        long loopCount = 0;
+        long waitTime = 0;
+        long startTime = System.currentTimeMillis();
+
+
+        while(thread != null){
+            Log.i("MySurfaceView","running");
+            try {
+                loopCount++;
+                if(!frickLocus.isDrawing()) frickLocus = new FrickLocus();
+                onDraw(holder);
+                waitTime = (loopCount * FRAME_TIME)
+                        - System.currentTimeMillis() - startTime;
+                if( waitTime > 0 ){
+                    Thread.sleep(waitTime);
+                }
+            }
+            catch (Exception e){}
         }
     }
 
@@ -88,11 +122,37 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
             //第二引数省略不可
             canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
 
+
+            Point locus = frickLocus.deriveLocus();
+
             Paint paint = new Paint();
             paint.setColor(Color.GREEN);
-            canvas.drawRect(inputArea.getArea(),paint);
+            //入力領域の矩形を描く
+            canvas.drawRect(inputArea.getArea(), paint);
+
+            //線の幅とアンチエリアスをセット
+            paint.setStrokeWidth(20);
+            paint.setAntiAlias(true);
+
+            //Frickの軌跡を描画
+            canvas.drawLine((float)frickLocus.getSx(), (float)frickLocus.getSy(), (float)locus.x, (float)locus.y, paint);
+
             holder.unlockCanvasAndPost(canvas);
         }
     }
+
+
+    public void tapDown(int x, int y){
+        frickLocus.setSx(x);
+        frickLocus.setSy(y);
+    }
+
+    public void tapUp(int x, int y, long d){
+        frickLocus.setEx(x);
+        frickLocus.setEy(y);
+        frickLocus.setDuration(d);
+    }
+
+
 }
 
