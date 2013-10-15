@@ -1,11 +1,10 @@
-package com.example.frickdraw; /**
+package com.example.flickdraw; /**
  * Created by Iplab on 13/10/01.
  */
 import android.content.Context;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Path;
 import android.view.View;
 
 

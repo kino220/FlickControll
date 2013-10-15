@@ -1,4 +1,4 @@
-package com.example.frickdraw;
+package com.example.flickdraw;
 
 import android.graphics.Rect;
 
