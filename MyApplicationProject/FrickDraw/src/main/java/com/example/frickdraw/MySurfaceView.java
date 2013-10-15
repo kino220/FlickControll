@@ -7,10 +7,9 @@ import android.content.*;
 import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
-import android.graphics.Point;
+import android.graphics.PointF;
 import android.graphics.PorterDuff;
 import android.view.*;
-import android.os.Bundle;
 import android.util.*;
 import android.graphics.PixelFormat;
 
@@ -25,8 +24,9 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
 
     int screenWidth,screenHeight;
     InputArea inputArea = new InputArea();
-    FrickLocus frickLocus = new FrickLocus();
+    FlickLocus flickLocus = new FlickLocus();
 
+    private boolean isTapDown = false;
 
 
    public MySurfaceView(Context context,int width, int height){
@@ -101,7 +101,7 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
             Log.i("MySurfaceView","running");
             try {
                 loopCount++;
-                if(!frickLocus.isDrawing()) frickLocus = new FrickLocus();
+                if(flickLocus.isFinished()) flickLocus = new FlickLocus();
                 onDraw(holder);
                 waitTime = (loopCount * FRAME_TIME)
                         - System.currentTimeMillis() - startTime;
@@ -123,19 +123,24 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
             canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
 
 
-            Point locus = frickLocus.deriveLocus();
+            PointF locus = flickLocus.deriveLocus();
 
             Paint paint = new Paint();
-            paint.setColor(Color.GREEN);
+            paint.setColor(Color.BLUE);
+            paint.setStyle(Paint.Style.STROKE);
             //入力領域の矩形を描く
             canvas.drawRect(inputArea.getArea(), paint);
 
             //線の幅とアンチエリアスをセット
+            paint.setColor(Color.GREEN);
             paint.setStrokeWidth(20);
             paint.setAntiAlias(true);
+            paint.setStyle(Paint.Style.FILL);
+            paint.setStrokeCap(Paint.Cap.ROUND);
+
 
             //Frickの軌跡を描画
-            canvas.drawLine((float)frickLocus.getSx(), (float)frickLocus.getSy(), (float)locus.x, (float)locus.y, paint);
+            canvas.drawLine((float) flickLocus.getSx(), (float) flickLocus.getSy(), locus.x, locus.y, paint);
 
             holder.unlockCanvasAndPost(canvas);
         }
@@ -143,14 +148,21 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
 
 
     public void tapDown(int x, int y){
-        frickLocus.setSx(x);
-        frickLocus.setSy(y);
+        Log.i("MySurfaceView","contains? "+inputArea.getArea().contains(x,y));
+        if(inputArea.getArea().contains(x,y)){
+            flickLocus.setSx(x);
+            flickLocus.setSy(y);
+            isTapDown = true;
+        }
     }
 
     public void tapUp(int x, int y, long d){
-        frickLocus.setEx(x);
-        frickLocus.setEy(y);
-        frickLocus.setDuration(d);
+        if(isTapDown){
+            flickLocus.setEx(x);
+            flickLocus.setEy(y);
+            flickLocus.setDuration(d);
+            isTapDown = false;
+        }
     }
 
 
