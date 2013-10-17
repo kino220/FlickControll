@@ -1,4 +1,4 @@
-package com.example.frickdraw;
+package com.example.flickdraw;
 
 /**
  * Created by Iplab on 13/10/07.
@@ -95,10 +95,10 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
         long loopCount = 0;
         long waitTime = 0;
         long startTime = System.currentTimeMillis();
-
+        Log.i("MySurfaceView","start main loop");
 
         while(thread != null){
-            Log.i("MySurfaceView","running");
+
             try {
                 loopCount++;
                 if(flickLocus.isFinished()) flickLocus = new FlickLocus();
@@ -139,7 +139,7 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
             paint.setStrokeCap(Paint.Cap.ROUND);
 
 
-            //Frickの軌跡を描画
+            //Flickの軌跡を描画
             canvas.drawLine((float) flickLocus.getSx(), (float) flickLocus.getSy(), locus.x, locus.y, paint);
 
             holder.unlockCanvasAndPost(canvas);
@@ -161,8 +161,9 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
             flickLocus.setEx(x);
             flickLocus.setEy(y);
             flickLocus.setDuration(d);
-            isTapDown = false;
+
         }
+        isTapDown = false;
     }
 
 
