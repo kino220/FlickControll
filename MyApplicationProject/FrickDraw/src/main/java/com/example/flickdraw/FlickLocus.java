@@ -11,6 +11,7 @@ public class FlickLocus implements Cloneable {
     private long duration;
     private float vx, vy, acceleration;
     private PointF locus;
+    private float locusX,locusY;
     private float mag = 20;
     private int counter;
     private int deltime;
@@ -39,7 +40,9 @@ public class FlickLocus implements Cloneable {
         vx = 0;
         vy = 0;
         acceleration = -1;
-        locus = new PointF();
+        locus = new PointF(0,0);
+        locusX = 0;
+        locusY = 0;
         counter = 0;
         deltime = 30;
         finished = false;
@@ -52,13 +55,28 @@ public class FlickLocus implements Cloneable {
 
     public void setSx(int sx) {
         this.sx = sx;
-        locus.x = sx;
+        //locus.x = (float)sx;
     }
 
     public void setSy(int sy) {
         this.sy = sy;
-        locus.y = sy;
+        //locus.y = (float)sy;
     }
+
+    public void setLocus(PointF locus) {
+        this.locus = locus;
+
+    }
+
+    public void setLocusX(float locusX) {
+        this.locusX = locusX;
+    }
+
+    public void setLocusY(float locusY) {
+        this.locusY = locusY;
+    }
+
+
 
     public int getSx() {
         return sx;
@@ -76,9 +94,17 @@ public class FlickLocus implements Cloneable {
         this.ey = ey;
     }
 
+    public float getLocusX() {
+        return locusX;
+    }
+
+    public float getLocusY() {
+        return locusY;
+    }
+
     /*
-    必ず、sx,sy,ex,eyをセットした後に実行すること！
-     */
+            必ず、sx,sy,ex,eyをセットした後に実行すること！
+             */
     public void setDuration(long duration) {
         this.duration = duration;
         vx = mag * (float)(Math.abs(ex - sx))/ (float)duration;
@@ -98,34 +124,37 @@ public class FlickLocus implements Cloneable {
         return  finished;
     }
 
-    public PointF deriveLocus(){
+    public void deriveLocus(){
 
         float l = (float) Math.sqrt((ex - sx ) * (ex - sx) + (ey - sy) * (ey - sy));
-        float cos = Math.abs((ex - sx) / l);
+        Float cos = Math.abs((ex - sx) / l);
         float sin = Math.abs((ey - sy) / l);
 
-        vx += acceleration * cos;
-        vy += acceleration * sin;
+        if(!(cos.isNaN())){
+            vx += acceleration * cos;
+            vy += acceleration * sin;
 
-        if(vx < 0)  vx = 0;
-        if(vy < 0)  vy = 0;
+            if(vx < 0)  vx = 0;
+            if(vy < 0)  vy = 0;
 
-        if(sx < ex){
-            locus.x += vx;
-        }else {
-            locus.x -= vx;
+
+
+            if(sx < ex){
+                locusX += vx;
+            }else {
+                locusX -= vx;
+            }
+
+            if(sy < ey){
+                locusY += vy;
+            }else{
+                locusY -= vy;
+            }
+
+            if(vx == 0 && vy == 0) counter++;
+            if(counter > deltime) finished = true;
         }
 
-        if(sy < ey){
-            locus.y += vy;
-        }else{
-            locus.y -= vy;
-        }
-
-        if(vx == 0 && vy == 0) counter++;
-        if(counter > deltime) finished = true;
-
-        return  locus;
     }
 
     //フリックの方向を決定
@@ -145,6 +174,7 @@ public class FlickLocus implements Cloneable {
 
     }
 
+
     //フリックの強さを決定
     private  void calcPower(){
         float l = (float) Math.sqrt((ex - sx ) * (ex - sx) + (ey - sy) * (ey - sy));
@@ -153,7 +183,12 @@ public class FlickLocus implements Cloneable {
 
         float vx = this.vx;
         float vy = this.vy;
-        PointF locus = new PointF(this.locus.x, this.locus.y);
+
+
+        float test = (float)sx;
+
+        PointF locus = new PointF((float)sx, (float)sy);
+
 
         int counter = 0;
 

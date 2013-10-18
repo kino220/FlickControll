@@ -123,7 +123,8 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
             canvas.drawColor(Color.TRANSPARENT, PorterDuff.Mode.CLEAR);
 
 
-            PointF locus = flickLocus.deriveLocus();
+            //PointF locus = flickLocus.deriveLocus();
+
 
             Paint paint = new Paint();
             paint.setColor(Color.BLUE);
@@ -140,7 +141,9 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
 
 
             //Flickの軌跡を描画
-            canvas.drawLine((float) flickLocus.getSx(), (float) flickLocus.getSy(), locus.x, locus.y, paint);
+
+            flickLocus.deriveLocus();
+            canvas.drawLine((float) flickLocus.getSx(), (float) flickLocus.getSy(), flickLocus.getLocusX(), flickLocus.getLocusY(), paint);
 
             holder.unlockCanvasAndPost(canvas);
         }
@@ -152,6 +155,9 @@ public class MySurfaceView extends SurfaceView implements SurfaceHolder.Callback
         if(inputArea.getArea().contains(x,y)){
             flickLocus.setSx(x);
             flickLocus.setSy(y);
+            //flickLocus.setLocus(new PointF((float)x, (float)y));
+            flickLocus.setLocusX((float)x);
+            flickLocus.setLocusY((float)y);
             isTapDown = true;
         }
     }
